@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feeds - Posts</title>
+</head>
+<body>
+    <h1>Welcome to my Feeds</h1>
+    <p>Feel free to post your thoughts</p>
+    <hr>
+
+    <form action="add_post/" method="post">
+        {% csrf_token %}
+        Name: <input type="text" name="name">
+        <br><br>
+        <textarea name="post"></textarea>
+        <br><br>
+        <input type="submit" value="Post">
+
+    </form>
+
+    <hr>
+    <h1>Recent Posts</h1>
+
+    {% for x in allposts %}
+    <p>{{ x.post }}</p>
+    <p><i>posted by {{ x.name }} at {{ x.time }}</i></p>
+
+    {% endfor %}
+</body>
+</html>

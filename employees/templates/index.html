@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Class</title>
+</head>
+<body>
+    <h1>Welcome to My Web Class!</h1>
+    <h2>Students</h2>
+    <table border="1">
+        {% for x in mystudents %}
+        <tr>
+            <td>{{ x.id }}</td>
+            <td>{{ x.first_name }}</td>
+            <td>{{ x.last_name}}</td>
+            <td>{{ x.age}}</td>
+            <td>{{ x.gender}}</td>
+            <td>{{ x.address}}</td>
+            <td>{{ x.religion}}</td>            
+            <td>{{ x.contact}}</td>
+            <td><a href="delete/{{ x.id }}">delete</a></td>
+            <td><a href="update/{{ x.id }}">update</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <p>
+        <a href="add/">Student Form</a>
+    </p>
+</body>
+</html>
